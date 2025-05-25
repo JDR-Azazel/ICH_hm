@@ -1,0 +1,232 @@
+    1  cd
+    2  ssh-keygen
+    3  cat /c/Users/HP-Ar/.ssh/id_ed25519 
+    4  cat /c/Users/HP-Ar/.ssh/id_ed25519.pub
+    5  ssh ec2-user@linux.itcareerhub.de 
+    6  ssh ec2-user@linux.itcareerhub.de 
+    7  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+    8  ssh -i ~/.ssh/id_ed25519 ec2-user@linux.itcareerhub.de
+    9  mkdir -p 21_03
+   10  cd 21_03
+   11   scp ec2-user@linux.itcareerhub.de:/opt/210225-ptm/daniil/21.txt .
+   12  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   13  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   14  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   15  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   16  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   17  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   18   scp ec2-user@linux.itcareerhub.de:/opt/210225-ptm/daniil/.process_management .
+   19  pwd
+   20  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   21  git config --global user.name JDR_Azazel
+   22  git config --global user.name "JDR_Azazel"
+   23  git config --global user.email "3612dw@gmail.com"
+   24  Git init
+   25  cd
+   26  mkdir ICH Linux
+   27  tree
+   28  ls
+   29  mkdir -p linux
+   30  cd linux
+   31  ls
+   32  pwd
+   33  echo "# linux" >> README.md
+   34  ls
+   35  Git init
+   36  cd
+   37  git status
+   38  cd linux
+   39  ls -a
+   40  git status
+   41  git add .
+   42  git status
+   43  git commit -m "addet README.md"
+   44  git status
+   45  git branch -M main
+   46  git remote add origin git@github.com:JDR-Azazel/linux.git
+   47  git push -u origin main
+   48  git remote -v
+   49  git push -u origin main 
+   50  log
+   51  git log
+   52  cd ..
+   53  mkdir git_intro && cd git_intro && git init 
+   54  git branch -M main 
+   55  cd
+   56  ls
+   57  cd git_intro
+   58  add .
+   59  $ comit -m "add mem image"
+   60  git add .
+   61  git status
+   62  git comit -m "add mem image"
+   63  git commit -m "add mem image"
+   64  git status
+   65  git remote add origin git@github.com:JDR-Azazel/git_intro.git
+   66  git push -u origin main
+   67  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   68  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   69  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+   70  ls -a
+   71  mkdir -p 08.04
+   72  cd 08.04
+   73  echo "# 08.04" >> README.md
+   74  git init
+   75  git branch -M main
+   76  git status
+   77  git add .
+   78  git status
+   79  git commit -m "addet README.md"
+   80  git remote add origin git@github.com:JDR-Azazel/08.04.git
+   81  git remote -v
+   82  git push -u origin main
+   83  git add .
+   84  git commit -m "addet image"
+   85  git push
+   86  git ststus
+   87  git status
+   88  git log
+   89  > file.txt
+   90  git add .
+   91  git branch
+   92  git branch test
+   93  git branch
+   94  git checkout test
+   95  git checkout
+   96  git checkout main
+   97  nano .gitignore
+   98  git ststus
+   99  git status
+  100  git add .
+  101  git ststus
+  102  git status
+  103  git commit -m "addet file .gitignore and file.txt"
+  104  git push
+  105  git push --force
+  106  git push -u main --force
+  107  git push --force origin main
+  108  mkdir git-branch && cd git-branch && pwd && git init && git checkout -b gitignore 
+  109  nano .gitignore
+  110  git add .
+  111  git commit -m "add .gitignore file"
+  112  git remote add origin git@github.com:JDR-Azazel/git-branch.git
+  113  git status
+  114  $ git push mster gitignore                                                
+  115  git push mster gitignore                                                
+  116  git push git-branch gitignore                                              
+  117  git remote -v
+  118  git push origin gitignore                                              
+  119  exit
+  120  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+  121  tree
+  122  ls -R
+  123  cd 08.04
+  124  ls -a
+  125  git chechout -b test
+  126  git checkout -b test
+  127  git checkout -b test_1
+  128  git push origin test_1
+  129  ls -l
+  130  git remove file.txt
+  131  commit -m file.txt
+  132  git commit -m file.txt
+  133  ls 
+  134  commit -d file.txt 
+  135  git rm file.txt 
+  136  ls
+  137  git commit -m "remove file.txt"
+  138  git push
+  139  git push --set-upstream origin test_1
+  140  ls -a
+  141  cat .gitignore 
+  142  echo "*.jpg"
+  143  echo "*.jpg" > .gitignore 
+  144  cat .gitignore 
+  145  exit
+  146  cd 08.04
+  147  ls -a
+  148  add hm13.py
+  149  git add hm13.py
+  150  git commit -m "addet python homework"
+  151  git push
+  152  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+  153  exit
+  154  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+  155  exit
+  156  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+  157  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+  158  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+  159  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+  160  cd
+  161  08.04
+  162  cd 08.04
+  163  nano permission_checker.sh 
+  164  add .
+  165  git add .
+  166  git commit -m "addet permission_checker.sh "
+  167  git push -origin test_1
+  168  git push -origin main
+  169  git push -u origin test_1
+  170  ssh -i ~/.ssh/id_rsa ec2-user@linux.itcareerhub.de
+  171  cd 08.04
+  172  ls
+  173  git add .
+  174  git commit -m "addet hm14"
+  175  git push origin test_1
+  176  mkdir git-merge-vs-rebase && cd git-merge-vs-rebase && git init 
+  177  echo "Feature 1" >> file.txt
+  178  git branch -M main
+  179  echo "Привет, мир!" > file.txt
+  180  git add file.txt 
+  181  git commit -m "init first commit file.txt"
+  182  git checkout -b feature
+  183  echo "Feature 1" >> file.txt
+  184  git commit -am "feat: добавлена первая фича"
+  185  echo "Feature 2" >> file.txt
+  186  git commit -am "feat: добавлена 2-я фича"
+  187  git branch
+  188  git checkout main
+  189  echo "asdasd" >> file.txt
+  190  git commit -am "1234"
+  191  git merge feature
+  192  git status
+  193  nano file.txt
+  194  git log --oneline --graph --all
+  195  git commi -am "union main feature"
+  196  git commit -am "union main feature"
+  197  git log --oneline --graph --all
+  198  [200~
+  199  scp ec2-user@linux.itcareerhub.de:/opt/210225-ptm/
+  200  cd 08.04
+  201  git add .
+  202  git commit 
+  203  cd 08.04
+  204  git status
+  205  git commit -m "aaaaaaaaaaa"
+  206  git push origin test_1
+  207  git push origin main
+  208  git status
+  209  git add .
+  210  git push origin test_1
+  211  git pull origin test_1
+  212  git push origin test_1
+  213  exit
+  214  git clone https://github.com/JDR-Azazel/hm12 && cd hm12 && nano README.md
+  215  git add README.md 
+  216  git commit -m "addet README.md"
+  217  git push origin main
+  218  git branck -b feature && nano README.md
+  219  git branch -b feature && nano README.md
+  220  git checkout -b feature && nano README.md
+  221  nano .gitignore 
+  222  git add README.md .gitignore
+  223  gti commit -m "modified README.md and .gitignore"
+  224  git commit -m "modified README.md and .gitignore"
+  225  git push origin feature
+  226  git commit --amend
+  227  git status
+  228  git branch main 
+  229  git checkout main 
+  230  git status
+  231  git merge feature
+  232  history > history.txt && gir add . && git commit -m "addet history" && git push origin main

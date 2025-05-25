@@ -1,0 +1,17 @@
+   0 mkdir /home/animals
+   1 touch /home/animals/dogs/pluto /home/animals/cats/garfield /home/animals/fish
+   2 touch /home/animals/dogs/pluto /home/animals/cats/garfield /home/animals/fish/nemo
+   3 tree /home
+   4 touch /tmp/adam
+   5 mkdir -p /home/humans && cp -r /tmp/adam /home/hunans
+   6 tree /home
+   7 tree /tmp
+   8 mkdir -p /home/humans && cp -r /tmp/adam /home/hunans
+   9 touch /tmp/evA && tree /tmp && tree /home
+  10 rm /home/hunans && tree /home
+  11 cp -r /tmp/adam /home/humans && tree /home
+  12 mv /tmp/evA /opt/eve 
+  13 mv /opt/eve /home/humans
+  14 tree /home/humans
+  15 touch /home/humans/.Python && ls -a /home/humans
+  16 history > /home/humans/history_of_humans.txt && export_file /home/humans/history_of_humans.txt

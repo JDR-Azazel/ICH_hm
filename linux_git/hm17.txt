@@ -1,0 +1,47 @@
+#!/bin/bash
+
+
+
+read -p "Input address for ping " address
+
+count=0
+
+while true; do
+
+        output=$(ping -c 1 "$address" 2>/dev/null)
+
+        if [[ $? -ne 0 ]]; then
+
+                ((count++))
+
+                echo "ping failed ($count/3)"
+
+        else
+
+                count=0
+
+                ping_time=$(echo "$output" | grep "time=" | awk -F 'time=' '{print $2}' | cut -d' ' -f1)
+
+                time_int=${ping_time%%.*}
+
+
+
+                echo "ping time ${time_int} ms"
+
+        fi
+
+
+
+        if [[ $count -ge 3 ]] || (( count == 0 && time_int > 100 )); then
+
+                echo "3 pings in a row failed or ping time more 100 ms"
+
+                break
+
+        fi
+
+
+
+        sleep 1
+
+done
