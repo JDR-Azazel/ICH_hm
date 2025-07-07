@@ -1,0 +1,256 @@
+//1. Найдите средний возраст из коллекции ich.US_Adult_Income
+
+[
+  {
+    $group: {
+      _id: null,
+      average_age: {
+        $avg: "$age"
+      }
+    }
+  }
+]
+
+_id: null
+average_age : 38.581598181929856
+
+//2. Поменяв подключение к базе данных, создать коллекцию orders_NAME (для уникальности - добавим ваше имя в название) 
+// со свойствами id, customer, product, amount, city, используя следующие данные:
+
+//1 Olga Apple 15.55 Berlin
+//2 Anna Apple 10.05 Madrid
+//3 Olga Kiwi 9.6 Berlin
+//4 Anton Apple 20 Roma
+//5 Olga Banana 8 Madrid
+//6 Petr Orange 18.3 Paris
+
+use ich_edit
+switched to db ich_edit
+
+db.createCollection("orders_daniil")
+{ ok: 1 }
+
+db.orders_daniil.insertMany([
+  {
+    id: 1,
+    customer: "Olga",
+    product: "Apple",
+    amount: 15.55,
+    city: "Berlin"
+  },
+  {
+    id: 2,
+    customer: "Anna",
+    product: "Apple",
+    amount: 10.05,
+    city: "Madrid"
+  },
+  {
+    id: 3,
+    customer: "Olga",
+    product: "Kiwi",
+    amount: 9.6,
+    city: "Berlin"
+  },
+  {
+    id: 4,
+    customer: "Anton",
+    product: "Apple",
+    amount: 20,
+    city: "Roma"
+  },
+  {
+    id: 5,
+    customer: "Olga",
+    product: "Banana",
+    amount: 8,
+    city: "Madrid"
+  },
+  {
+    id: 6,
+    customer: "Petr",
+    product: "Orange",
+    amount: 18.3,
+    city: "Paris" 
+  }  
+])
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('686bd551648b5f3f8b59de07'),
+    '1': ObjectId('686bd551648b5f3f8b59de08'),
+    '2': ObjectId('686bd551648b5f3f8b59de09'),
+    '3': ObjectId('686bd551648b5f3f8b59de0a'),
+    '4': ObjectId('686bd551648b5f3f8b59de0b'),
+    '5': ObjectId('686bd551648b5f3f8b59de0c')
+  }
+}
+
+//3. Найти сколько всего было совершено покупок
+
+// var_1
+db.orders_daniil.countDocuments()
+6
+
+// var_2
+[
+  {
+    $group: {
+      _id: null,
+      total: {
+        $sum: 1
+      }
+    }
+  }
+]
+
+_id: null
+total : 6
+
+//4.Найти сколько всего раз были куплены яблоки
+
+// var_1
+db.orders_daniil.countDocuments({ product: "Apple" })
+3
+
+// var_2
+[
+  {
+    $match: {
+      product: "Apple"
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      apple_count: {
+        $sum: 1
+      }
+    }
+  }
+]
+
+_id: null
+apple_count : 3
+
+//5. Вывести идентификаторы трех самые дорогих покупок
+
+[
+  {
+    $sort: {
+      amount: -1
+    }
+  },
+  {
+    $limit: 3
+  },
+  {
+    $project: {
+      _id: 1,
+      id: 1
+    }
+  }
+]
+
+_id: ObjectId("6820d0afa200c45418a189a2")
+id : 4
+
+_id: ObjectId("6820d0afa200c45418a189a4")
+id : 6
+
+_id: ObjectId("6820d0afa200c45418a1899f")
+id : 1
+
+//6. Найти сколько всего покупок было совершено в Берлине
+
+[
+  {
+    $match: {
+      city: "Berlin"
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      berlin_count: {
+        $sum: 1
+      }
+    }
+  }
+]
+
+_id: null
+berlin_count : 2
+
+//7. Найти количество покупок яблок в городах Берлин и Мадрид
+
+[
+  {
+    $match: {
+      product: "Apple",
+      city: {
+        $in: ["Berlin", "Madrid"]
+      }
+    }
+  },
+  {
+    $group: {
+      _id: "$city",
+      apple_count: {
+        $sum: 1
+      }
+    }
+  }
+]
+
+_id: "Madrid"
+apple_count : 1
+
+_id: "Berlin"
+apple_count : 1
+
+//8. Найти сколько было потрачено каждым покупателем (подсказка: используем $group и total: {$sum: '$amount'} )
+
+[
+  {
+    $group: {
+      _id: "$customer",
+      total: {
+        $sum: "$amount"
+      }
+    }
+  }
+]
+
+_id: Olga 
+total : 33.15 
+
+_id": Anna 
+total: 10.05 
+
+_id": Anton 
+total : 20
+
+_id": Petr 
+total : 18.3
+
+
+//9. Найти в каких городах совершала покупки Ольга (подсказка: используем $match customer: 'Olga' и $group _id: '$city')
+
+[
+  {
+    $match: {
+      customer: "Olga"
+    }
+  },
+  {
+    $group: {
+      _id: "$city"
+    }
+  }
+]
+
+
+_id: "Madrid"
+_id: "Berlin"
