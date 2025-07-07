@@ -1,0 +1,92 @@
+//1. Коллекция imdb : Используя оператор $size , найдите фильмы, написанные 3 сценаристами (writers) и снятые 2 режиссерами (directors)
+
+use ich
+
+// comm. Вывел только названия иначе результать занял бы очень много строк всего таких фильмов 25
+
+db.imdb.find({writers: {$size: 3}, directors: {$size: 2}}, {title: 1, _id: 0})
+{
+  title: 'The Squaw Man'
+}
+{
+  title: 'The Rough House'
+}
+{
+  title: 'Neighbors'
+}
+{
+  title: 'My Boy'
+}
+{
+  title: 'Blood and Sand'
+}
+{
+  title: 'Daydreams'
+}
+{
+  title: 'The Electric House'
+}
+{
+  title: 'Merry-Go-Round'
+}
+{
+  title: 'Our Hospitality'
+}
+{
+  title: 'Three Ages'
+}
+{
+  title: 'The Navigator'
+}
+{
+  title: 'The Big Parade'
+}
+{
+  title: 'The Red Kimona'
+}
+{
+  title: 'Sparrows'
+}
+{
+  title: 'The Temptress'
+}
+{
+  title: 'The Great Gabbo'
+}
+{
+  title: "Noah's Ark"
+}
+{
+  title: 'The Big House'
+}
+{
+  title: 'Medchen in Uniform'
+}
+Type "it" for more
+
+//2. Коллекция bookings: Найдите адрес нахождения автомобиля с vin WME4530421Y135045 по самой последней дате (и времени) final_date
+
+db.bookings.find({ vin: "WME4530421Y135045" }, { final_address: 1, _id: 0 }).sort({ final_date: -1 }).limit(1)
+{
+  final_address: 'Piazza Guido Cavalcanti, 8, 10132 Torino TO'
+}
+
+//3. Коллекция bookings: подсчитайте, у скольких автомобилей при окончании аренды закончилось топливо (final_fuel)
+
+db.bookings.countDocuments({ final_fuel: 0 })
+30
+
+//4. Коллекция bookings: найдите номерной знак и vin номер авто, с самым большим километражом (distance)
+
+db.bookings.find({}, { plate: 1, vin: 1, _id: 0 }).sort({ distance: -1 }).limit(1)
+{
+  plate: '020/FF778KW',
+  vin: 'WME4533421K148812'
+}
+
+//5. Коллекция imdb. Найдите фильм с участием "Brad Pitt" с самым высоким рейтингом (imdb.rating)
+
+db.imdb.find({ cast: "Brad Pitt" }, { title: 1, _id: 0 }).sort({ "imdb.rating": -1 }).limit(1)
+{
+  title: 'The Big Short'
+}
