@@ -45,8 +45,8 @@ print("Новая площадь:", rect.get_area())
 
 class Counter:
     def __init__(self):
-        self.value = 0  # Счётчик начинается с нуля
-
+        self.value = 0
+        
     def increment(self):
         self.value += 1
         print(f"Значение увеличено, текущее: {self.value}")
