@@ -44,7 +44,6 @@ def calculate_pi(precision_level=1_000_000):
         accumulator += term
     return accumulator * 4
 
-# Вызов вычислительного модуля
 calculate_pi()
 
 """
