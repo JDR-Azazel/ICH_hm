@@ -98,6 +98,6 @@ class Money:
 money1 = Money(100)
 money2 = Money(50)
 
-print(money1 + money2)  # $150
-print(money1 - money2)  # $50
-print(money2 - money1)  # $0
+print(money1 + money2)
+print(money1 - money2)
+print(money2 - money1)
