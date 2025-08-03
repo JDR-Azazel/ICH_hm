@@ -1,0 +1,63 @@
+//1. Из коллекции sample_airbnb.listingsAndReviews найдите среднюю цену за сутки проживания на Гавайских островах. 
+Островов несколько, поэтому либо используем {'address.location': {$geoWithin: { $centerSphere …. 
+Либо перечисляем все возможные острова в поле market
+Подсказка - нам понадобится 2 этапа агрегации : $match и $group
+
+[
+  {
+    $match: {
+      "address.location": {
+        $geoWithin: {
+          $centerSphere: [
+            [-155.6658568, 19.8967662],
+            1.5
+          ] // координаты и радиус для охвата Гавайских островов
+        }
+      }
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      avgPrice: {
+        $avg: "$price"
+      }
+    }
+  }
+]
+
+_id: null
+avgPrice : 285.3619354838709677419354838709677
+
+//2.  Подсчитайте в коллекции sample_mflix.movies, сколько фильмов имеют imdb рейтинг выше 8 и выходили 
+в период с 2015 до 2023 года (используем year) Какой из них имеет самый высокий рейтинг ?
+
+[
+  {
+    $match: {
+      "imdb.rating": {
+        $gt: 8
+      },
+      year: {
+        $gte: 2015,
+        $lte: 2023
+      }
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      count: {
+        $sum: 1
+      },
+      max_rating: {
+        $max: "$imdb.rating"
+      }
+    }
+  }
+]
+
+_id: null
+count : 53
+max_rating : 9.4
+
